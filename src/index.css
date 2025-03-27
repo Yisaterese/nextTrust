@@ -1,1 +1,35 @@
 @import "tailwindcss";
+:root {
+    --bg-default: #141f4b;
+    --bg-button: #4039d4;
+    --text-color: white;
+}
+
+.bg-custom {
+    background-color: var(--bg-default);
+}
+.text-button {
+    background-color: var(--bg-button);
+}
+.text-color {
+    color: var(--text-color);
+}
+
+.nav-gradient {
+    background: linear-gradient(120deg,#141f4b 40%, #4039d4);
+}
+
+.slanted-text {
+    display: inline-block;
+    transform: skewX(-20deg);
+}
+.card-custom{
+    background-color: #194549;
+}
+.container-padding{
+    padding: 6px 80px;
+}
+.mid-padding{
+    padding: 6px 8px;
+}
+

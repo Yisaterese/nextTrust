@@ -1,7 +1,11 @@
-module.exports = {
-    content: ['./src/**/*.{html,js,jsx,ts,tsx}'], // Adjust paths to match your project structure
-    theme: {
-        extend: {},
-    },
-    plugins: [],
-};
+// // eslint-disable-next-line no-undef
+// module.exports = {
+//     theme: {
+//         extend: {
+//             colors: {
+//                 customBackground: '#141519',
+//             },
+//         },
+//     },
+//     plugins: [],
+// };

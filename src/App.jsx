@@ -1,14 +1,20 @@
 
 import './App.css'
-import Dashboard from "./organisational/dashboard.jsx";
+import NavBar from "./Component/navBar.jsx";
+import { Routes, Route} from "react-router-dom";
+import LandingPage from "./pages/landingPage.jsx";
 
 function App() {
 
   return (
-      <div>
-          <Dashboard/>
-      </div>
-
+     <div>
+         <NavBar/>
+         <div>
+             <Routes>
+                <Route path="/" element={<LandingPage/>}/>
+             </Routes>
+         </div>
+     </div>
   )
 }
 
