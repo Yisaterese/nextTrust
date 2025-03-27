@@ -1,14 +1,20 @@
 
 import './App.css'
+import NavBar from "./Component/navBar.jsx";
+import { Routes, Route} from "react-router-dom";
+import LandingPage from "./pages/landingPage.jsx";
 
 function App() {
 
   return (
-      <div
-          className="text-center text-lg text-gray-700 font-bold bg-red-500 w-full h-screen flex items-center justify-center ">
-          Hello World
-      </div>
-
+     <div>
+         <NavBar/>
+         <div>
+             <Routes>
+                <Route path="/" element={<LandingPage/>}/>
+             </Routes>
+         </div>
+     </div>
   )
 }
 
