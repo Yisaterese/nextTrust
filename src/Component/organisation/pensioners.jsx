@@ -12,7 +12,7 @@ const PensionCard = ({ username, walletAddress, pensionAmount }) => {
     };
 
     return (
-        <div className=" flex items-center justify-between bg-white shadow-lg rounded-xl p-3 w-full border border-gray-200 mb-4">
+        <div className=" flex items-center  justify-between bg-white shadow-lg rounded-xl p-3 w-full border border-gray-200 mb-4">
             {/* Left Side - Username & Wallet Address */}
             <div className=" block">
                 <p className="text-lg font-semibold">{username}</p>
@@ -27,7 +27,7 @@ const PensionCard = ({ username, walletAddress, pensionAmount }) => {
                 {/* Middle - Accrued Pension Amount */}
                 <div className="text-center block px-4">
                     <p className="text-gray-500 text-sm">Accrued Pension</p>
-                    <div className="bg-gray-100 w-full py-1 rounded-md font-bold text-lg">
+                    <div className=" py-1 rounded-md font-bold text-lg">
                         ${pensionAmount}
                     </div>
                 </div>
