@@ -27,9 +27,9 @@ const OurService = ()=>{
         }
     ]
     return(
-        <div className=" flex flex-col items-center justify-center w-[100%] px-2 md:px-25 md:mb-10 ">
+        <div className=" flex flex-col items-center justify-center w-[100%] px-2 md:px-25 md:mb-10 mt-15">
             <p className="text-gray-900 text-[35px] font-serif font-bold md:mb-10 mb-5">Our Service</p>
-            <div className="flex w-full md:flex-wrap flex-col md:flex-row justify-between gap-3">
+            <div className="flex w-full md:flex-wrap flex-col md:flex-row justify-between gap-5">
                 {data.map((value,index)=> (
                     <div key={index} className="flex w-[80%] md:w-[45%] gap-3 group self-center md:self-start">
                         <div className="w-[3px] h-[130px] bg-custom group-hover:bg-custom transition-all duration-300"/>
