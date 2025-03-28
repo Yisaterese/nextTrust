@@ -12,7 +12,7 @@ const Introduction = () => {
                 transition={{ duration: 1 }}
                 className="flex items-center flex-col w-full md:w-[45%] md:pr-6 md:pl-0 gap-3 py-3 text-center md:text-left"
             >
-                <p className="text-color text-[28px] md:text-[38px] font-bold font-sans-serif w-[80%] md:self-start self-center ">
+                <p className="text-color text-[28px] md:text-[38px] font-bold font-sans-serif w-[80%] md:self-start self-center">
                     <TypeAnimation
                         sequence={[
                             "The journey to the future of your dreams begins here..",
@@ -37,10 +37,7 @@ const Introduction = () => {
                         cursor={false}
                     />
                 </p>
-                <button className="text-button  text-white py-3 px-4 rounded font-semibold font-sans bg-white ">
-
                 <button className="text-button text-white py-3 px-4 rounded font-semibold font-sans bg-white md:self-start mt-3 cursor-pointer">
-
                     Join NexTrust
                 </button>
             </motion.div>
