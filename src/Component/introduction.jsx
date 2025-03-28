@@ -36,9 +36,8 @@ const Introduction = () => {
                         repeat={0}
                         cursor={false}
                     />
-
                 </p>
-                <button className="text-button text-white py-3 px-4 rounded font-semibold font-sans bg-white">
+                <button className="text-button  text-white py-3 px-4 rounded font-semibold font-sans bg-white ">
                     Join NexTrust
                 </button>
             </motion.div>
