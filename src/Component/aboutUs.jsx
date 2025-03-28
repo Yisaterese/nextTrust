@@ -2,7 +2,7 @@ import image from '../assets/img/person.avif';
 
 const AboutUs = ()=>{
     return(
-        <div className="w-[100%] flex items-center py-6 flex-col self-center rounded-xl border-1 border-white px-2 md:px-25">
+        <div className="w-[100%] flex items-center py-6 flex-col self-center rounded-xl border-1 border-white px-2 md:px-25 mt-15">
             <p className="text-[35px] font-bold font-serif self-center text-gray-900">About Us</p>
             <div
                 className="flex justify-between md:flex-row flex-col px-12 w-[98%] py-2 md:h-[180px] h-[280px] items-center nav-gradient rounded-xl">
@@ -72,7 +72,7 @@ const AboutUs = ()=>{
                             Helping you prepare for times of uncertainty is at the heart of what we do.
                         </p>
                     </div>
-                    <button className="text-button text-white py-3 px-4 rounded font-semibold font-sans bg-white cursor-pointer">
+                    <button className="text-button text-white py-3 px-4 rounded font-semibold font-sans bg-white cursor-pointer mr-4">
                         Join nexTrust
                     </button>
                 </div>
