@@ -4,7 +4,7 @@ import family from "../assets/img/family.jpg";
 
 const Introduction = () => {
     return (
-        <div className="flex flex-col md:flex-row md:pt-0 pt-8 items-center justify-between w-[100%] md:px-25 px-3 h-screen bg-custom">
+        <div className="flex flex-col md:flex-row md:pt-0 pt-10 items-center justify-between w-[100%] md:px-25 px-3 h-screen bg-custom">
             {/* Left Side (Text) */}
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
@@ -12,7 +12,7 @@ const Introduction = () => {
                 transition={{ duration: 1 }}
                 className="flex items-center flex-col w-full md:w-[45%] md:pr-6 md:pl-0 gap-3 py-3 text-center md:text-left"
             >
-                <p className="text-color text-[28px] md:text-[39px] font-bold font-serif">
+                <p className="text-color text-[28px] md:text-[38px] font-bold font-sans-serif w-[80%] md:self-start self-center">
                     <TypeAnimation
                         sequence={[
                             "The journey to the future of your dreams begins here..",
@@ -24,7 +24,7 @@ const Introduction = () => {
                         cursor={false}
                     />
                 </p>
-                <p className="text-white text-[14px] md:text-[16px] font-semibold font-sans pr-6">
+                <p className="text-white text-[14px] md:text-[16px] font-semibold font-sans pr-6 md:self-start self-center">
                     <TypeAnimation
                         sequence={[
                             4000,
@@ -37,7 +37,7 @@ const Introduction = () => {
                         cursor={false}
                     />
                 </p>
-                <button className="text-button  text-white py-3 px-4 rounded font-semibold font-sans bg-white ">
+                <button className="text-button text-white py-3 px-4 rounded font-semibold font-sans bg-white md:self-start mt-3 cursor-pointer">
                     Join NexTrust
                 </button>
             </motion.div>
