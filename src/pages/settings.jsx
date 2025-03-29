@@ -23,7 +23,7 @@ const Settings = () => {
     });
 
     return (
-        <div className="w-full  my-5 md:py-25 p-5 bg-white rounded-lg shadow-md overflow-y-auto md:mr-2 mr-6">
+        <div className={`p-5 space-y-4 ${location.pathname === '/dashboard' ? "w-full" : "w-[80%] ml-10 md:ml-80 mt-25"} overflow-y-auto mt-20`}>
             <h2 className="text-2xl font-bold mb-4">Settings</h2>
 
             {/* Profile Settings */}
