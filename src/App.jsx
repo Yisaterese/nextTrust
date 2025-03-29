@@ -9,6 +9,7 @@ import MemberLoginPage from "./pages/memberRegisterPage.jsx"; // Import MemberLo
 import ZkLoginPage from "./pages/zkLogin.jsx";
 import UserDashBoard from "./pages/organisational/userDashBoard.jsx";
 import Connect from "./Component/connect.jsx";
+import Login from "./pages/login.jsx";
 
 function App() {
     const location = useLocation();
