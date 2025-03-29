@@ -1,15 +1,15 @@
-import {ConnectButton} from '@suiet/wallet-kit';
+import { ConnectButton } from "@suiet/wallet-kit";
 
-const Connect = () =>{
+const Connect = () => {
     return (
-        <div className="md:w-full  ">
+        <div className="md:w-full">
             <nav>
-                <ConnectButton />
+                <ConnectButton>
+                    <span>Connect</span>
+                </ConnectButton>
             </nav>
-            <section>
-                {/* Your application content */}
-            </section>
         </div>
     );
-}
-export default Connect
+};
+
+export default Connect;
