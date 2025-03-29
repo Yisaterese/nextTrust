@@ -9,9 +9,12 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import MemberRegisterPage from "./pages/memberRegisterPage.jsx";
 import ZkLoginPage from "./pages/zkLogin.jsx";
 import UserDashBoard from "./pages/organisational/userDashBoard.jsx";
-import Analytics from "./Component/analytics.jsx";
+
+import Connect from "./Component/connect.jsx"; // Correct import
+
 
 function App() {
+
     const  location = useLocation();
   return (
      <div>
@@ -24,6 +27,7 @@ function App() {
                 <Route path="/zkLogin" element={<ZkLoginPage/>}/>
                  <Route path="/dashboard" element={<Dashboard />} />
                  <Route path="/userDashboard" element={<UserDashBoard/>} />
+                 <Route path="/connect" element={<Connect/>} />
              </Routes>
          </div>
          <Footer/>
