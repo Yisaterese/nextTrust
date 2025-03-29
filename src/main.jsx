@@ -5,6 +5,8 @@ import { WalletProvider } from '@suiet/wallet-kit';
 import '@suiet/wallet-kit/style.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import "./index.css";
+import {ToastContainer} from "react-toastify";
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Router>
             <WalletProvider>
                 <App />
+                <ToastContainer />
             </WalletProvider>
         </Router>
     </React.StrictMode>

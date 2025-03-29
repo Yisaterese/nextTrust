@@ -1,36 +1,33 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const MemberLoginPage = () => {
     const { orgId } = useParams();
-    const [organizationName, setOrganizationName] = useState("");
+    const navigate = useNavigate();
+    const [organizationName, setOrganizationName] = useState("Loading...");
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState({});
-    const [successMessage, setSuccessMessage] = useState("");
 
-    // Fetch organization details based on orgId
     useEffect(() => {
         const fetchOrganization = async () => {
             try {
-                const response = await fetch(`https://your-api.com/organizations/${orgId}`);
-                const data = await response.json();
-                setOrganizationName(data.name); // Store the organization name
+                const response = await axios.get(`https://your-api.com/organizations/${orgId}`);
+                setOrganizationName(response.data.name);
             } catch (error) {
                 console.error("Error fetching organization:", error);
                 setOrganizationName("Unknown Organization");
             }
         };
-
         fetchOrganization();
     }, [orgId]);
 
     const validateForm = () => {
         let newErrors = {};
-        const { email, password } = formData;
-
-        if (!email) newErrors.email = "Email is required.";
-        if (!password) newErrors.password = "Password is required.";
-
+        if (!formData.email) newErrors.email = "Email is required.";
+        if (!formData.name) newErrors.name = "Name is required.";
+        if (!formData.password) newErrors.password = "Password is required.";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -39,69 +36,39 @@ const MemberLoginPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleMemberLogin = () => {
-        if (validateForm()) {
-            setTimeout(() => {
-                setSuccessMessage(`Successfully logged into ${organizationName}`);
-            }, 1000);
-        }
-    };
+    const handleMemberRegister = async () => {
+        if (!validateForm()) return;
 
-    // Function to handle zkLogin authentication
-    const handleZkLogin = () => {
-        console.log("zkLogin initiated...");
-        // Implement zkLogin authentication logic here
+        try {
+            const response = await axios.post("https://your-api.com/users/register", {
+                email: formData.email,
+                password: formData.password,
+                organizationId: orgId
+            });
+
+            localStorage.setItem("user", JSON.stringify(response.data));
+            toast.success("Registration successful!");
+            navigate("/userDashboard");
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Registration failed.");
+        }
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-4 text-center">Member Login</h2>
+                <h2 className="text-2xl font-bold mb-4 text-center">Join Organization</h2>
+                <p className="text-center text-lg font-semibold mb-4">Joining: <span className="text-blue-500">{organizationName}</span></p>
 
-                <p className="text-center text-lg font-semibold mb-4">
-                    Logging into: <span className="text-blue-500">{organizationName}</span>
-                </p>
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full p-2 border border-gray-300 rounded mt-2"
-                />
+                <input type="name" name="name" placeholder="name" value={formData.email} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
+                {errors.name && <p className="text-red-500">{errors.name}</p>}
+                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
                 {errors.email && <p className="text-red-500">{errors.email}</p>}
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    className="w-full p-2 border border-gray-300 rounded mt-2"
-                />
+                <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
                 {errors.password && <p className="text-red-500">{errors.password}</p>}
 
-                <button
-                    onClick={handleMemberLogin}
-                    className="bg-blue-500 text-white w-full py-2 rounded mt-4"
-                >
-                    Login
-                </button>
-
-                {/* zkLogin Button */}
-                <button
-                    onClick={handleZkLogin}
-                    className="bg-gray-800 text-white w-full py-2 rounded mt-4"
-                >
-                    Login with zkLogin
-                </button>
-
-                {successMessage && (
-                    <div className="mt-4 p-3 bg-green-100 text-green-700 rounded">
-                        {successMessage}
-                    </div>
-                )}
+                <button onClick={handleMemberRegister} className="bg-blue-500 text-white w-full py-2 rounded mt-4">Join</button>
             </div>
         </div>
     );
