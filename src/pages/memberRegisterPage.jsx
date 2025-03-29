@@ -13,7 +13,8 @@ const MemberLoginPage = () => {
     useEffect(() => {
         const fetchOrganization = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/organizations${orgId}`);
+                const response = await axios.get(`http://localhost:5000/organizations/${orgId}`);
+
                 setOrganizationName(response.data.name);
             } catch (error) {
                 console.error("Error fetching organization:", error);
@@ -40,7 +41,8 @@ const MemberLoginPage = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post("https://your-api.com/users/register", {
+            const response = await axios.post("http://localhost:5000/users", {
+                name: formData.name,
                 email: formData.email,
                 password: formData.password,
                 organizationId: orgId
@@ -60,7 +62,7 @@ const MemberLoginPage = () => {
                 <h2 className="text-2xl font-bold mb-4 text-center">Join Organization</h2>
                 <p className="text-center text-lg font-semibold mb-4">Joining: <span className="text-blue-500">{organizationName}</span></p>
 
-                <input type="name" name="name" placeholder="name" value={formData.email} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
+                <input type="name" name="name" placeholder="name" value={formData.name} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
                 {errors.name && <p className="text-red-500">{errors.name}</p>}
                 <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="w-full p-2 border border-gray-300 rounded mt-2" />
                 {errors.email && <p className="text-red-500">{errors.email}</p>}

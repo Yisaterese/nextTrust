@@ -45,13 +45,14 @@ function Dashboard() {
                 </button>
 
                 {/* Centered Search Bar */}
-                <input
+
+                {location.pathname !== "/userDashboard" && <input
                     type="text"
                     placeholder="Search pensioner..."
                     className="px-4 py-2 border rounded-md w-3/5 sm:w-1/3"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                />
+                />}
 
                 {/* Wallet Icon and Connect Button */}
                 <div className="relative" ref={walletRef}>
