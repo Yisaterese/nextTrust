@@ -41,7 +41,7 @@ const NavBar = () => {
 
     return (
         <nav className="flex fixed top-0 left-0 z-50 w-full md:px-25 px-3 justify-between items-center nav-gradient">
-            <p className="font-sans-serif font-extrabold md:text-[35px] text-[25px] text-colo cursor-pointer" onClick={()=>navigate('/')}>NEXTRUST</p>
+            <p className="font-sans-serif text-white font-extrabold md:text-[35px] text-[25px] cursor-pointer" onClick={()=>navigate('/')}>NEXTRUST</p>
 
             {/* Desktop Links */}
             <div className="hidden md:flex gap-4 p-4 items-center">
