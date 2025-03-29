@@ -1,5 +1,5 @@
 import WalletChart from "../Component/chart/WalletChart.jsx";
-import transactions from "../component/chart/data.js";
+import transactions from "../Component/chart/data.js";
 
 const Analytics = () => {
     return (
