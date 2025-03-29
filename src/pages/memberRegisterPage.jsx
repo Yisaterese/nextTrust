@@ -13,7 +13,7 @@ const MemberLoginPage = () => {
     useEffect(() => {
         const fetchOrganization = async () => {
             try {
-                const response = await axios.get(`https://your-api.com/organizations/${orgId}`);
+                const response = await axios.get(`http://localhost:5000/organizations${orgId}`);
                 setOrganizationName(response.data.name);
             } catch (error) {
                 console.error("Error fetching organization:", error);

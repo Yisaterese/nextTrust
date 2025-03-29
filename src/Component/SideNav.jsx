@@ -1,6 +1,7 @@
 import { FaCog, FaUsers, FaHistory, FaChartBar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {toast} from "react-toastify";
 
 const SideNav = ({ setActiveSection }) => {
     const location = useLocation();
@@ -17,7 +18,7 @@ const SideNav = ({ setActiveSection }) => {
     const copyToClipboard = () => {
         if (inviteLink) {
             navigator.clipboard.writeText(inviteLink).then(() => {
-                alert("Invite link copied to clipboard!");
+                toast.success("Invite link copied to clipboard!");
             });
         }
     };
