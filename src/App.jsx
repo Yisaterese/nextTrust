@@ -20,8 +20,7 @@ function App() {
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/member" element={<MemberRegisterPage/>}/>
                 <Route path="/zkLogin" element={<ZkLoginPage/>}/>
-                 <Route path="/dashboard" element={<Dashboard />} />
-
+                 <Route path="/dashboard" element={<Dashboard/>} />
              </Routes>
          </div>
          <Footer/>
