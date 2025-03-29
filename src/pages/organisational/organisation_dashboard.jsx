@@ -3,12 +3,18 @@ import SideNav from "../../Component/SideNav.jsx";
 import PensionCard from "../../Component/organisation/pensioners.jsx";
 import { Menu, X } from "lucide-react";
 import { pensioners } from "../../lists/list.js";
+import {useLocation} from "react-router-dom";
+import Analytics from "../../Component/analytics.jsx";
+import TransactionHistory from "../transactionHistory.jsx";
+import Settings from "../settings.jsx";
 
 function Dashboard() {
-    const [activeComponent, setActiveComponent] = useState("pensioners");
+    const [activeComponent, setActiveComponent] = useState("analytics");
     const [sideNavOpen, setSideNavOpen] = useState(false); // Control SideNav visibility
     const [walletOpen, setWalletOpen] = useState(false); // Control Wallet dropdown visibility
     const [searchTerm, setSearchTerm] = useState(""); // Store search input
+    const location = useLocation();
+
 
     // Wallet details (set dynamically)
     const [walletName, setWalletName] = useState("Organisation");
@@ -72,7 +78,7 @@ function Dashboard() {
                 </button>
 
                 {/* SideNav Menu Items */}
-                <SideNav setActiveComponent={setActiveComponent} className="h-full flex flex-col justify-center" />
+                <SideNav setActiveSection={setActiveComponent} className="h-full flex flex-col justify-center" />
             </div>
 
             {/* Click outside to close SideNav (Overlay Effect) */}
@@ -84,7 +90,7 @@ function Dashboard() {
             )}
 
             {/* Main Content Area */}
-            <div className="flex-1 sm:ml-64 overflow-y-auto p-5 pt-20">
+            {location.pathname !== "/userDashboard" && (<div className="flex-1 sm:ml-64 overflow-y-auto p-5 pt-20">
                 {activeComponent === "pensioners" && (
                     <div className="w-full space-y-4">
                         {filteredPensioners.map((pensioner) => (
@@ -97,7 +103,10 @@ function Dashboard() {
                         ))}
                     </div>
                 )}
-            </div>
+            </div>)}
+            {activeComponent === "analytics" && (<Analytics/>)}
+            {activeComponent === "history" && (<TransactionHistory/>)}
+            {activeComponent === "settings" && (<Settings/>)}
         </div>
     );
 }
