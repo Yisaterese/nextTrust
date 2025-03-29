@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {toast} from "react-toastify"; // Import toast for notifications
+import { toast } from "react-toastify";
+import axios from "axios"; // Import axios
 
 const LoginCard = () => {
     const [email, setEmail] = useState("");
@@ -11,31 +12,21 @@ const LoginCard = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:5000/api/auth", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
+            const { data } = await axios.post("http://localhost:5000/auth", {
+                email,
+                password,
             });
 
-            const data = await response.json();
-
-            if (!response.ok) {
-                console.log(data.error || "Something went wrong");
-                toast.error(data.error || "Something went wrong!");
-            }
-
             localStorage.setItem("user", JSON.stringify(data.user));
+            toast.success("Login Successful");
 
             if (data.type === "user") {
                 navigate("/userDashboard");
-                toast.success("Login Successful")
             } else if (data.type === "organization") {
                 navigate("/dashboard");
-                toast.success("Login Successful")
-
             }
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error.response?.data?.error || "Something went wrong!");
         }
     };
 
