@@ -69,7 +69,7 @@ const LoginCard = () => {
 
                     <button
                         type="submit"
-                        className="w-full bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition"
+                        className="w-full bg-blue-800 text-white p-2 rounded-md hover:bg-green-600 transition"
                     >
                         Login
                     </button>
