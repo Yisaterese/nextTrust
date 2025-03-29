@@ -3,16 +3,18 @@ import SideNav from "../../Component/SideNav.jsx";
 import PensionCard from "../../Component/organisation/pensioners.jsx";
 import { Menu, X } from "lucide-react";
 import { pensioners } from "../../lists/list.js";
-import TransactionHistory from "../../Component/organisation/transaction_history.jsx";
-
-// Placeholder components for different sections
+import Analytics from "../../Component/analytics.jsx";
+import TransactionHistory from "../transactionHistory.jsx";
+import Settings from "../settings.jsx";
 
 function Dashboard() {
-    const [activeComponent, setActiveComponent] = useState("pensioners");
-    const [sideNavOpen, setSideNavOpen] = useState(false);
-    const [walletOpen, setWalletOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState("");
+    const [activeComponent, setActiveComponent] = useState("analytics");
+    const [sideNavOpen, setSideNavOpen] = useState(false); // Control SideNav visibility
+    const [walletOpen, setWalletOpen] = useState(false); // Control Wallet dropdown visibility
+    const [searchTerm, setSearchTerm] = useState(""); // Store search input
 
+
+    // Wallet details (set dynamically)
     const [walletName, setWalletName] = useState("Organisation");
     const [walletBalance, setWalletBalance] = useState("₦500,000");
     const [walletAddress, setWalletAddress] = useState("0xABC123DEF456");
@@ -23,11 +25,14 @@ function Dashboard() {
 
     return (
         <div className="dashboard-container flex h-screen">
-            {/* Navbar */}
-            <div className="fixed top-0 w-full bg-white shadow-md p-4 z-50 flex justify-between items-center">
+            {/* Navbar (For Small Screens) */}
+            <div className="fixed top-0 w-full bg-white shadow-md p-4 z-50 flex justify-between items-center ">
+                {/* Hamburger Menu */}
                 <button onClick={() => setSideNavOpen(true)} className="text-gray-700">
                     <Menu size={24} />
                 </button>
+
+                {/* Centered Search Bar */}
                 <input
                     type="text"
                     placeholder="Search pensioner..."
@@ -35,6 +40,8 @@ function Dashboard() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
+
+                {/* Wallet Button */}
                 <div className="relative">
                     <button
                         className="bg-[#272c88] text-white px-4 py-2 rounded-md"
@@ -42,6 +49,8 @@ function Dashboard() {
                     >
                         Wallet
                     </button>
+
+                    {/* Wallet Dropdown */}
                     {walletOpen && (
                         <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg p-4 text-gray-700">
                             <p className="font-semibold">Name: {walletName}</p>
@@ -77,11 +86,12 @@ function Dashboard() {
                         ))}
                     </div>
                 )}
-                {activeComponent === "analysis" && <Analysis />}
-                {activeComponent === "transactionHistory" && <TransactionHistory />}
-                {activeComponent === "settings" && <Settings />}
             </div>
+            {activeComponent === "analytics" && (<Analytics/>)}
+            {activeComponent === "history" && (<TransactionHistory/>)}
+            {activeComponent === "settings" && (<Settings/>)}
         </div>
+
     );
 }
 

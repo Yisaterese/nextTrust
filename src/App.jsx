@@ -8,6 +8,8 @@ import Footer from "./Component/footer.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import MemberRegisterPage from "./pages/memberRegisterPage.jsx";
 import ZkLoginPage from "./pages/zkLogin.jsx";
+import UserDashBoard from "./pages/organisational/userDashBoard.jsx";
+import Analytics from "./Component/analytics.jsx";
 
 function App() {
     const  location = useLocation();
@@ -20,7 +22,8 @@ function App() {
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/member" element={<MemberRegisterPage/>}/>
                 <Route path="/zkLogin" element={<ZkLoginPage/>}/>
-                 <Route path="/dashboard" element={<Dashboard/>} />
+                 <Route path="/dashboard" element={<Dashboard />} />
+                 <Route path="/userDashboard" element={<UserDashBoard/>} />
              </Routes>
          </div>
          <Footer/>
