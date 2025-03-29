@@ -33,7 +33,7 @@ const SideNav = ({ setActiveSection }) => {
             </p>
 
             {/* Display Invite Link */}
-            {inviteLink && (
+            {location.pathname !== "/userDashboard" && inviteLink && (
                 <div className="bg-white text-black p-2 rounded-md text-sm mb-4 flex items-center justify-between">
                     <span className="truncate max-w-[180px]">{inviteLink}</span>
                     <button
